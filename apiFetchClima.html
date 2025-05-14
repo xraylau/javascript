@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Clima</title>
+</head>
+<body>
+    <!-- Botón para obtener datos -->
+    <button onclick="obtenerClima()">Obtener clima</button>
+    
+    <!-- Contenedor para los resultados -->
+    <div id="clima"></div>
+
+    <script>
+    async function obtenerClima() {
+        try {
+            // Hacemos petición a la API
+            const respuesta = await fetch('https://api.open-meteo.com/v1/forecast?latitude=40.41&longitude=-3.70&current_weather=true');
+            
+            // Convertimos respuesta a JSON
+            const datos = await respuesta.json();
+            
+            // Mostramos datos en el DOM
+            document.getElementById('clima').innerHTML = `
+                <p>Temperatura: ${datos.current_weather.temperature}°C</p>
+            `;
+        } catch (error) {
+            // Manejo de errores
+            console.error('Error:', error);
+            document.getElementById('clima').innerHTML = 'Error al obtener datos del clima';
+        }
+        /*
+          async/await: sintaxis para trabajar con promesas
+          fetch: API para hacer peticiones HTTP
+          try/catch: manejo de errores en operaciones asíncronas
+          template strings para mostrar datos dinámicos
+        */
+    }
+    </script>
+</body>
+</html>

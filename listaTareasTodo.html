@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de tareas</title>
+</head>
+<body>
+    <!-- Input para nueva tarea -->
+    <input type="text" id="nuevaTarea" placeholder="Nueva tarea">
+    
+    <!-- Botón para agregar tarea -->
+    <button onclick="agregarTarea()">Agregar</button>
+    
+    <!-- Lista donde mostraremos las tareas -->
+    <ul id="listaTareas"></ul>
+
+    <script>
+    function agregarTarea() {
+        // Obtenemos el texto de la tarea
+        const tarea = document.getElementById('nuevaTarea').value;
+        
+        // Verificamos que no esté vacío
+        if (tarea) {
+            // Creamos nuevo elemento li
+            const li = document.createElement('li');
+            li.textContent = tarea;
+            
+            // Agregamos a la lista
+            document.getElementById('listaTareas').appendChild(li);
+            
+            // Limpiamos el input
+            document.getElementById('nuevaTarea').value = '';
+        }
+        /*
+          createElement(): crea nuevo elemento HTML
+          appendChild(): agrega elemento como hijo de otro
+          textContent: establece contenido de texto del elemento
+        */
+    }
+    </script>
+</body>
+</html>

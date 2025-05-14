@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generador de tablas</title>
+</head>
+<body>
+    <!-- Inputs para dimensiones -->
+    <input type="number" id="filas" placeholder="Filas">
+    <input type="number" id="columnas" placeholder="Columnas">
+    
+    <!-- Botón generador -->
+    <button onclick="generarTabla()">Generar</button>
+    
+    <!-- Contenedor para la tabla -->
+    <div id="tablaContainer"></div>
+
+    <script>
+    function generarTabla() {
+        // Obtenemos valores de filas y columnas
+        const filas = parseInt(document.getElementById('filas').value);
+        const columnas = parseInt(document.getElementById('columnas').value);
+        const container = document.getElementById('tablaContainer');
+        
+        // Comenzamos a construir la tabla
+        let tabla = '<table border="1">';
+        
+        // Generamos filas
+        for (let i = 0; i < filas; i++) {
+            tabla += '<tr>';
+            
+            // Generamos celdas para cada fila
+            for (let j = 0; j < columnas; j++) {
+                tabla += `<td>Fila ${i+1}, Col ${j+1}</td>`;
+            }
+            
+            tabla += '</tr>';
+        }
+        
+        tabla += '</table>';
+        
+        // Insertamos la tabla en el contenedor
+        container.innerHTML = tabla;
+        /*
+          parseInt: convierte string a entero
+          +=: operador de concatenación
+          template strings para contenido dinámico
+        */
+    }
+    </script>
+</body>
+</html>

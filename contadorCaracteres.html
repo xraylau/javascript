@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contador de caracteres</title>
+</head>
+<body>
+    <!-- Textarea para escribir -->
+    <textarea id="miTexto" oninput="contarCaracteres()"></textarea>
+    
+    <!-- Contador -->
+    <p>Caracteres: <span id="contadorCaracteres">0</span></p>
+
+    <script>
+    function contarCaracteres() {
+        // Obtenemos el texto
+        const texto = document.getElementById('miTexto').value;
+        
+        // Mostramos la longitud del texto
+        document.getElementById('contadorCaracteres').textContent = texto.length;
+        /*
+          oninput: evento que se dispara al cambiar el contenido
+          length: propiedad que devuelve longitud del string
+        */
+    }
+    </script>
+</body>
+</html>

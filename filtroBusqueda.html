@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filtro de búsqueda</title>
+</head>
+<body>
+    <!-- Campo de búsqueda -->
+    <input type="text" id="busqueda" placeholder="Buscar...">
+    
+    <!-- Lista a filtrar -->
+    <ul id="lista">
+        <li>Manzana</li>
+        <li>Banana</li>
+        <li>Cereza</li>
+        <li>Dátil</li>
+    </ul>
+
+    <script>
+    // Escuchamos evento keyup en el input
+    document.getElementById('busqueda').addEventListener('keyup', function() {
+        // Obtenemos valor en minúsculas
+        const valor = this.value.toLowerCase();
+        
+        // Seleccionamos todos los items de la lista
+        const items = document.querySelectorAll('#lista li');
+        
+        // Recorremos cada item
+        items.forEach(item => {
+            const texto = item.textContent.toLowerCase();
+            
+            // Mostramos u ocultamos según coincidencia
+            item.style.display = texto.includes(valor) ? 'block' : 'none';
+        });
+        /*
+          querySelectorAll: selecciona múltiples elementos
+          forEach: ejecuta función para cada elemento
+          includes: verifica si string contiene otro
+          operador ternario: if/else en una línea
+        */
+    });
+    </script>
+</body>
+</html>

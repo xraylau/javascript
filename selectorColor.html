@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Selector de color</title>
+</head>
+<body>
+    <!-- Input type color (nativo de HTML5) -->
+    <input type="color" id="selectorColor" onchange="cambiarColor()">
+    
+    <!-- Texto que cambiará de color -->
+    <p id="textoColor">Hola Bebe que mas pues</p>
+
+    <script>
+    function cambiarColor() {
+        // Obtenemos el valor del selector de color
+        const color = document.getElementById('selectorColor').value;
+        
+        // Aplicamos el color al texto
+        document.getElementById('textoColor').style.color = color;
+        /*
+          input type="color": muestra selector de color nativo
+          onchange: evento que se dispara al cambiar el valor
+          style.color: cambia color del texto
+        */
+    }
+    </script>
+</body>
+</html>

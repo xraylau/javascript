@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Acordeón</title>
+    <style>
+    /* Estilos para el acordeón */
+    .panel {
+        display: none;
+        padding: 10px;
+        background-color: #f1f1f1;
+    }
+    .active {
+        background-color: #ddd;
+    }
+    </style>
+</head>
+<body>
+    <!-- Botones del acordeón -->
+    <button class="acordeon">Sección 1</button>
+    <div class="panel">
+        <p>Contenido de la sección 1...</p>
+    </div>
+
+    <button class="acordeon">Sección 2</button>
+    <div class="panel">
+        <p>Contenido de la sección 2...</p>
+    </div>
+
+    <script>
+    // Seleccionamos todos los botones del acordeón
+    const acordeones = document.getElementsByClassName('acordeon');
+    
+    // Añadimos evento click a cada uno
+    for (let i = 0; i < acordeones.length; i++) {
+        acordeones[i].addEventListener('click', function() {
+            // Alternamos clase active
+            this.classList.toggle('active');
+            
+            // Obtenemos el panel asociado (siguiente elemento hermano)
+            const panel = this.nextElementSibling;
+            
+            // Alternamos visibilidad
+            panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+        });
+        /*
+          classList.toggle: alterna una clase CSS
+          nextElementSibling: siguiente elemento en el DOM
+          Operador ternario para cambiar display
+        */
+    }
+    </script>
+</body>
+</html>

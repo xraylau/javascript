@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reloj digital</title>
+</head>
+<body>
+    <!-- Elemento donde mostraremos el reloj -->
+    <p id="reloj"></p>
+
+    <script>
+    // Función que actualiza el reloj
+    function actualizarReloj() {
+        // Creamos objeto Date con la hora actual
+        const ahora = new Date();
+        
+        // Mostramos la hora en formato local
+        document.getElementById('reloj').innerHTML = ahora.toLocaleTimeString();
+    }
+    
+    // Actualizamos el reloj cada segundo (1000ms)
+    setInterval(actualizarReloj, 1000);
+    
+    // Ejecutamos inmediatamente para evitar retraso inicial
+    actualizarReloj();
+    /*
+      new Date(): crea objeto con fecha/hora actual
+      toLocaleTimeString(): devuelve hora formateada según configuración local
+      setInterval(): ejecuta función repetidamente con intervalo fijo
+    */
+    </script>
+</body>
+</html>

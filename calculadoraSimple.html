@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora</title>
+</head>
+<body>
+    <!-- Inputs para los números -->
+    <input type="number" id="calc1">
+    
+    <!-- Selector de operación -->
+    <select id="operacion">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    
+    <input type="number" id="calc2">
+    
+    <!-- Botón para calcular -->
+    <button onclick="calcular()">=</button>
+    
+    <!-- Resultado -->
+    <p id="calcResultado"></p>
+
+    <script>
+    function calcular() {
+        // Obtenemos valores y operación
+        const n1 = parseFloat(document.getElementById('calc1').value);
+        const n2 = parseFloat(document.getElementById('calc2').value);
+        const op = document.getElementById('operacion').value;
+        let resultado;
+        
+        // Realizamos operación según selección
+        switch(op) {
+            case '+': resultado = n1 + n2; break;
+            case '-': resultado = n1 - n2; break;
+            case '*': resultado = n1 * n2; break;
+            case '/': resultado = n1 / n2; break;
+        }
+        
+        // Mostramos resultado
+        document.getElementById('calcResultado').innerHTML = resultado;
+        /*
+          switch: estructura para múltiples condiciones
+          break: detiene la ejecución del case actual
+        */
+    }
+    </script>
+</body>
+</html>

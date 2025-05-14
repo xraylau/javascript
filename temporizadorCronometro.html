@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temporizador que SÍ se detiene</title>
+    <style>
+        #tiempo {
+            font-size: 2em;
+            font-family: monospace;
+        }
+        button {
+            padding: 8px 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p id="tiempo">00:00</p>
+    <button onclick="iniciarTemporizador()">Iniciar</button>
+    <button onclick="detenerTemporizador()">Detener</button>
+    <button onclick="reiniciarTemporizador()">Reiniciar</button>
+
+    <script>
+        // Variables en el ámbito global para que todas las funciones puedan acceder
+        let segundos = 0;
+        let intervalo = null; // Inicializado como null
+
+        function actualizarTiempo() {
+            const minutos = Math.floor(segundos / 60);
+            const segs = segundos % 60;
+            document.getElementById('tiempo').textContent = 
+                `${minutos.toString().padStart(2, '0')}:${segs.toString().padStart(2, '0')}`;
+        }
+
+        function iniciarTemporizador() {
+            // Si ya hay un intervalo corriendo, no crear otro
+            if (intervalo !== null) return;
+            
+            intervalo = setInterval(() => {
+                segundos++;
+                actualizarTiempo();
+            }, 1000);
+        }
+
+        function detenerTemporizador() {
+            clearInterval(intervalo);
+            intervalo = null; // Importante: limpiar la referencia
+        }
+
+        function reiniciarTemporizador() {
+            detenerTemporizador();
+            segundos = 0;
+            actualizarTiempo();
+        }
+
+        // Inicializar el display
+        actualizarTiempo();
+    </script>
+</body>
+</html>

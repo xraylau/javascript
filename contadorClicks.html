@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contador de clics</title>
+</head>
+<body>
+    <!-- Botón que incrementa el contador -->
+    <button onclick="contarClicks()">Haz clic</button>
+    
+    <!-- Mostramos el contador -->
+    <p>Clicks: <span id="contador">0</span></p>
+
+    <script>
+    // Variable para almacenar el conteo
+    let count = 0;
+    
+    function contarClicks() {
+        // Incrementamos el contador
+        count++;
+        
+        // Actualizamos el display
+        document.getElementById('contador').textContent = count;
+        /*
+          textContent: similar a innerHTML pero más seguro para solo texto
+          ++: operador de incremento
+        */
+    }
+    </script>
+</body>
+</html>

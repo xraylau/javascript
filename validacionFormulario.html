@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validación de formulario</title>
+</head>
+<body>
+    <!-- Formulario con validación personalizada -->
+    <form onsubmit="return validar()">
+        <!-- Campo obligatorio (required) -->
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        
+        <!-- Campo email con validación personalizada -->
+        <input type="email" id="email" placeholder="Email">
+        
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+    function validar() {
+        // Obtenemos el valor del email
+        const email = document.getElementById('email').value;
+        
+        // Validamos que contenga @
+        if (!email.includes('@')) {
+            alert('Email no válido');
+            return false; // Evita que se envíe el formulario
+        }
+        return true; // Permite el envío del formulario
+        /*
+          includes(): método de string que verifica si contiene un caracter
+          return false: previene el envío del formulario
+        */
+    }
+    </script>
+</body>
+</html>

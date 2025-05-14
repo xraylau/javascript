@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cambiar imagen</title>
+    <style>
+        /* Estilo básico para la imagen */
+        #miImagen {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            transition: 0.3s; /* Suaviza el cambio */
+        }
+    </style>
+</head>
+<body>
+    <!-- Imagen que cambia con eventos de mouse -->
+    <img id="miImagen" src="imagenes/bellota.jpeg" 
+        onmouseover="this.src='imagenes/bellota.jpeg'" 
+        onmouseout="this.src='imagenes/bellota2.jpg'"
+         alt="Imagen interactiva">
+    <!--
+      onmouseover: evento cuando el cursor entra en el elemento
+      onmouseout: evento cuando el cursor sale del elemento
+      this: referencia al elemento mismo (la imagen)
+    -->
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adivina el número</title>
+</head>
+<body>
+    <!-- Instrucciones -->
+    <p>Adivina el numero entre 1 y 100</p>
+    
+    <!-- Campo para el intento -->
+    <input type="number" id="intento">
+    
+    <!-- Botón para verificar -->
+    <button onclick="verificar()">Adivinar</button>
+    
+    <!-- Mensajes de pista -->
+    <p id="pista"></p>
+
+    <script>
+    // Generamos número aleatorio al cargar la página
+    const numeroSecreto = Math.floor(Math.random() * 100) + 1;
+
+    function verificar() {
+        // Obtenemos el intento del usuario
+        const intento = parseInt(document.getElementById('intento').value);
+        const pista = document.getElementById('pista');
+        
+        // Comparamos con el número secreto
+        if (intento === numeroSecreto) {
+            pista.textContent = 'Correcto';
+        } else if (intento < numeroSecreto) {
+            pista.textContent = 'Demasiado bajo';
+        } else {
+            pista.textContent = 'Demasiado alto';
+        }
+        /*
+          Math.random(): genera número decimal entre 0 y 1
+          Math.floor(): redondea hacia abajo
+          Condicionales para dar pistas al jugador
+        */
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carrusel de imágenes</title>
+    <style>
+    /* Estilos para el carrusel */
+    .slide {
+        display: none;
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+    }
+    .active {
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <!-- Contenedor del carrusel -->
+    <div class="carrusel">
+        <img src="imagenes/bellota.jpeg" class="slide active" alt="Imagen 1">
+        <img src="imagenes/bellota2.jpg" class="slide" alt="Imagen 2">
+        <img src="imagenes/bellota3.jpg" class="slide" alt="Imagen 3">
+    </div>
+    
+    <!-- Controles -->
+    <button onclick="cambiarSlide(-1)">Anterior</button>
+    <button onclick="cambiarSlide(1)">Siguiente</button>
+
+    <script>
+    // Índice de la slide actual
+    let slideIndex = 0;
+
+    function cambiarSlide(n) {
+        // Obtenemos todas las slides
+        const slides = document.getElementsByClassName('slide');
+        
+        // Actualizamos índice
+        slideIndex += n;
+        
+        // Lógica circular (si llega al final, vuelve al inicio)
+        if (slideIndex >= slides.length) slideIndex = 0;
+        if (slideIndex < 0) slideIndex = slides.length - 1;
+        
+        // Ocultamos todas las slides
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].classList.remove('active');
+        }
+        
+        // Mostramos la slide actual
+        slides[slideIndex].classList.add('active');
+        /*
+          classList.remove/agregar: manipula clases CSS
+          Lógica circular para navegación infinita
+        */
+    }
+    </script>
+</body>
+</html>
