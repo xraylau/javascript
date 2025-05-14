@@ -14,7 +14,7 @@
     async function obtenerClima() {
         try {
             // Hacemos petición a la API
-            const respuesta = await fetch('https://api.open-meteo.com/v1/forecast?latitude=40.41&longitude=-3.70&current_weather=true');
+            const respuesta = await fetch('https://api.open-meteo.com/v1/forecast?latitude=4.71&longitude=-74.07&current_weather=true');
             
             // Convertimos respuesta a JSON
             const datos = await respuesta.json();
